@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Jost", system-ui, sans-serif;
+  
+  --color-beige-50: #FDFBF7;
+  --color-beige-100: #F5F0E6;
+  --color-beige-200: #E9DEC9;
+  --color-beige-300: #DBCAAB;
+  --color-beige-900: #3A3225;
+  
+  --color-gold-light: #F4EAD4;
+  --color-gold-primary: #D4AF37;
+  --color-gold-dark: #AA8B2C;
+  
+  --color-charcoal-50: #F6F6F6;
+  --color-charcoal-100: #ECECEC;
+  --color-charcoal-800: #262626;
+  --color-charcoal-950: #121212;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-beige-50);
+    color: var(--color-charcoal-950);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
