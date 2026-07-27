@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useShop } from '../context/ShopContext';
 import { X, Star, Heart, ShoppingBag, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReviewSection from './ReviewSection';
 
 const QuickViewModal = () => {
   const {
@@ -17,6 +18,7 @@ const QuickViewModal = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [activeImage, setActiveImage] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [activeTab, setActiveTab] = useState('details'); // 'details' or 'reviews'
 
   // Sync state with active product
   useEffect(() => {
@@ -107,7 +109,34 @@ const QuickViewModal = () => {
 
           {/* Right Side: Product Details */}
           <div className="w-full md:w-1/2 p-6 md:p-8 overflow-y-auto no-scrollbar flex flex-col justify-between">
-            <div className="font-sans">
+            
+            {/* Tabs */}
+            <div className="flex gap-4 border-b border-charcoal-100 mb-6">
+              <button
+                onClick={() => setActiveTab('details')}
+                className={`pb-3 px-2 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                  activeTab === 'details'
+                    ? 'text-charcoal-950 border-b-2 border-gold-primary'
+                    : 'text-charcoal-600 hover:text-charcoal-950'
+                }`}
+              >
+                Details
+              </button>
+              <button
+                onClick={() => setActiveTab('reviews')}
+                className={`pb-3 px-2 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                  activeTab === 'reviews'
+                    ? 'text-charcoal-950 border-b-2 border-gold-primary'
+                    : 'text-charcoal-600 hover:text-charcoal-950'
+                }`}
+              >
+                Reviews
+              </button>
+            </div>
+
+            {/* Details Tab */}
+            {activeTab === 'details' && (
+              <div className="font-sans flex flex-col justify-between h-full">
               
               {/* Category & Rating */}
               <div className="flex items-center justify-between mb-2">
@@ -208,8 +237,17 @@ const QuickViewModal = () => {
                 </div>
               )}
             </div>
+            )}
 
-            {/* Actions Footer */}
+            {/* Reviews Tab */}
+            {activeTab === 'reviews' && (
+              <div className="flex-1 overflow-y-auto">
+                <ReviewSection productId={quickViewProduct.id} />
+              </div>
+            )}
+
+            {/* Actions Footer - Only show on details tab */}
+            {activeTab === 'details' && (
             <div className="flex gap-4 border-t border-charcoal-100 pt-4 mt-auto">
               <button
                 onClick={handleAddToCart}
@@ -230,6 +268,7 @@ const QuickViewModal = () => {
                 <Heart className={`w-4.5 h-4.5 ${isWishlisted ? 'fill-red-500' : ''}`} />
               </button>
             </div>
+            )}
 
           </div>
 

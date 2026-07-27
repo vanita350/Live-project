@@ -17,6 +17,8 @@ const CartDrawer = () => {
     cart,
     cartOpen,
     setCartOpen,
+    checkoutOpen,
+    setCheckoutOpen,
     updateCartQuantity,
     removeFromCart,
     cartSubtotal,

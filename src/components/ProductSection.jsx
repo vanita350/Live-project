@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useShop } from '../context/ShopContext';
 import { products } from '../data/products';
 import ProductCard from './ProductCard';
+import FilterBar from './FilterBar';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ProductSection = () => {
-  const { activeCategory } = useShop();
+  const { activeCategory, filters } = useShop();
   const [activeTab, setActiveTab] = useState('featured'); // 'featured' | 'bestsellers' | 'new'
 
   const tabs = [
@@ -16,26 +17,64 @@ const ProductSection = () => {
 
   const getFilteredProducts = () => {
     let filtered = products;
+    
+    // Category filter
     if (activeCategory && activeCategory !== 'all') {
       filtered = filtered.filter(p => p.category === activeCategory);
     }
 
+    // Tab filter
     switch (activeTab) {
       case 'bestsellers':
-        return filtered.filter(p => p.badge === 'Best Seller' || p.badge === 'Popular' || p.rating >= 4.8);
+        filtered = filtered.filter(p => p.badge === 'Best Seller' || p.badge === 'Popular' || p.rating >= 4.8);
+        break;
       case 'new':
-        return filtered.filter(p => p.badge === 'New' || p.badge === 'Trending' || p.price > 200);
+        filtered = filtered.filter(p => p.badge === 'New' || p.badge === 'Trending' || p.price > 200);
+        break;
       case 'featured':
       default:
-        return filtered.filter(p => p.badge === 'Premium' || p.badge === 'Luxury' || p.badge === 'Trending' || p.badge === 'Best Seller');
+        filtered = filtered.filter(p => p.badge === 'Premium' || p.badge === 'Luxury' || p.badge === 'Trending' || p.badge === 'Best Seller');
     }
+
+    // Price filter
+    filtered = filtered.filter(p => p.price >= filters.minPrice && p.price <= filters.maxPrice);
+
+    // Rating filter
+    if (filters.minRating > 0) {
+      filtered = filtered.filter(p => p.rating >= filters.minRating);
+    }
+
+    // Sorting
+    switch (filters.sortBy) {
+      case 'price-low':
+        filtered.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-high':
+        filtered.sort((a, b) => b.price - a.price);
+        break;
+      case 'rating':
+        filtered.sort((a, b) => b.rating - a.rating);
+        break;
+      case 'popular':
+        filtered.sort((a, b) => b.reviews - a.reviews);
+        break;
+      case 'newest':
+      default:
+        // Keep default order
+        break;
+    }
+
+    return filtered;
   };
 
   const filtered = getFilteredProducts();
 
   return (
-    <section id="shop-section" className="py-20 bg-beige-50 border-t border-charcoal-100/30">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section id="shop-section" className="py-0 bg-beige-50 border-t border-charcoal-100/30">
+      {/* Filter Bar */}
+      <FilterBar />
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-20">
         
         {/* Section Heading */}
         <div className="text-center mb-10">
@@ -74,18 +113,32 @@ const ProductSection = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12"
         >
           <AnimatePresence mode="popLayout">
-            {filtered.map((product) => (
-              <motion.div
-                key={product.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
-                transition={{ duration: 0.4 }}
-              >
-                <ProductCard product={product} />
-              </motion.div>
-            ))}
+            {filtered.length > 0 ? (
+              filtered.map((product) => (
+                <motion.div
+                  key={product.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <ProductCard product={product} />
+                </motion.div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <p className="text-charcoal-600 text-lg">No products found matching your filters.</p>
+                <button
+                  onClick={() => {
+                    // Reset filters
+                  }}
+                  className="text-gold-primary font-semibold text-sm mt-4 hover:underline"
+                >
+                  Try adjusting your filters
+                </button>
+              </div>
+            )}
           </AnimatePresence>
         </motion.div>
 

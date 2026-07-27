@@ -16,6 +16,14 @@ import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import QuickViewModal from './components/QuickViewModal';
 import ToastContainer from './components/Toast';
+import SearchModal from './components/SearchModal';
+import CheckoutModal from './components/CheckoutModal';
+import { useShop } from './context/ShopContext';
+
+const AppSearchWrapper = () => {
+  const { searchModalOpen, setSearchModalOpen } = useShop();
+  return <SearchModal isOpen={searchModalOpen} onClose={() => setSearchModalOpen(false)} />;
+};
 
 const AppContent = () => {
   return (
@@ -47,6 +55,8 @@ const AppContent = () => {
       <CartDrawer />
       <QuickViewModal />
       <ToastContainer />
+      <AppSearchWrapper />
+      <CheckoutModal />
     </div>
   );
 };

@@ -12,6 +12,8 @@ const Header = () => {
     setCartOpen,
     searchOpen,
     setSearchOpen,
+    searchModalOpen,
+    setSearchModalOpen,
     searchQuery,
     setSearchQuery,
     addToCart,
@@ -68,8 +70,8 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 border-b border-transparent ${isScrolled
-            ? 'bg-beige-50/95 backdrop-blur-md py-4 shadow-sm border-charcoal-100'
-            : 'bg-transparent py-6'
+          ? 'bg-beige-50/95 backdrop-blur-md py-4 shadow-sm border-charcoal-100'
+          : 'bg-transparent py-6'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
@@ -92,16 +94,16 @@ const Header = () => {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => handleNavClick(link.category)}
-              className="text-xs uppercase tracking-[0.2em] text-charcoal-950 hover:text-gold-primary transition-colors font-medium relative group"
-            >
-              {link.name}
-              <span className="absolute bottom-[-4px] left-0 w-0 h-[1px] bg-gold-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => handleNavClick(link.category)}
+                className="text-xs uppercase tracking-[0.2em] text-charcoal-950 hover:text-gold-primary transition-colors font-medium relative group"
+              >
+                {link.name}
+                <span className="absolute bottom-[-4px] left-0 w-0 h-[1px] bg-gold-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
           </nav>
 
           {/* Action Icons */}
@@ -109,13 +111,13 @@ const Header = () => {
 
             {/* Search Icon */}
             <button
-              onClick={() => setSearchOpen(true)}
+              onClick={() => setSearchModalOpen(true)}
               className="text-charcoal-950 hover:text-gold-primary transition-colors cursor-pointer"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />
             </button>
- 
+
             {/* Profile Dropdown */}
             <div className="relative">
               <button
@@ -425,7 +427,7 @@ const Header = () => {
                   }}
                   className="text-charcoal-950 hover:opacity-70 p-2 cursor-pointer flex items-center gap-2 text-xs uppercase tracking-widest font-semibold"
                 >
-                   <X className="w-5 h-5" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
