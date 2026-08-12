@@ -110,8 +110,8 @@ export default function Hero() {
             <Mail className="w-4 h-4" />
           </button>
           <a
-            href="/Vanita_Bharadiya_Resume.pdf"
-            download="Vanita_Bharadiya_Resume.pdf"
+            href="/Vanita_Bharadiya_Full_Stack_Developer_Resume.pdf.pdf"
+            download="Vanita_Bharadiya_Full_Stack_Developer_Resume.pdf"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-zinc-400 hover:text-zinc-200 transition-colors group"
           >
             <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
@@ -137,12 +137,12 @@ export default function Hero() {
               label: 'LinkedIn',
               color: 'hover:bg-sky-500/10 hover:border-sky-500/40',
             },
-            {
-              href: 'https://mail.google.com/mail/?view=cm&fs=1&to=bharadiyavanitar@gmail.com',
-              icon: Mail,
-              label: 'Email',
-              color: 'hover:bg-indigo-500/10 hover:border-indigo-500/40',
-            },
+            // {
+            //   href: 'https://mail.google.com/mail/?view=cm&fs=1&to=bharadiyavanitar@gmail.com',
+            //   icon: Mail,
+            //   label: 'Email',
+            //   color: 'hover:bg-indigo-500/10 hover:border-indigo-500/40',
+            // },
 
           ].map(({ href, icon: Icon, label, color }) => (
             <a

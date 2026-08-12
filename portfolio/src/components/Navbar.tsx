@@ -95,7 +95,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="/Vanita_Bharadiya_Resume.pdf"
+            href="/Vanita_Bharadiya_Full_Stack_Developer_Resume.pdf.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline text-xs px-4 py-2"

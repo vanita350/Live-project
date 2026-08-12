@@ -34,10 +34,36 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
     setStatus('submitting');
-    await new Promise(r => setTimeout(r, 1500));
-    setStatus('success');
-    setForm(INITIAL);
-    setTimeout(() => setStatus('idle'), 6000);
+
+    try {
+      const formData = new FormData();
+      formData.append('name', form.name.trim());
+      formData.append('email', form.email.trim());
+      formData.append('subject', form.subject.trim());
+      formData.append('message', form.message.trim());
+      formData.append('_subject', `[Portfolio Contact] ${form.subject.trim()}`);
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'box');
+
+      const response = await fetch('https://formsubmit.co/ajax/bharadiyavanitar@gmail.com', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('FormSubmit request failed');
+      }
+
+      setStatus('success');
+      setForm(INITIAL);
+    } catch (error) {
+      setStatus('error');
+    } finally {
+      setTimeout(() => setStatus('idle'), 6000);
+    }
   };
 
   const handleChange = (field: keyof FormState) => (
@@ -136,7 +162,7 @@ export default function Contact() {
                     icon: Mail,
                     label: 'Email',
                     sub: 'bharadiyavanitar@gmail.com',
-                    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=bharadiyavanitar@gmail.com',
+                    href: 'mailto:bharadiyavanitar@gmail.com?subject=Hello%20Vanita',
                     color: 'hover:border-indigo-500/40 hover:bg-indigo-500/5',
                     iconColor: 'text-indigo-400',
                   },
@@ -181,6 +207,16 @@ export default function Contact() {
                   <h3 className="text-xl font-bold text-zinc-100 mb-2">Message Sent!</h3>
                   <p className="text-zinc-400 text-sm max-w-xs">
                     Thanks for reaching out. I'll get back to you within 24 hours.
+                  </p>
+                </div>
+              ) : status === 'error' ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <div className="w-16 h-16 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center mb-5">
+                    <CheckCircle2 className="w-8 h-8 text-rose-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-zinc-100 mb-2">Send Failed</h3>
+                  <p className="text-zinc-400 text-sm max-w-xs">
+                    There was a problem sending your message. Please try again or email me directly.
                   </p>
                 </div>
               ) : (

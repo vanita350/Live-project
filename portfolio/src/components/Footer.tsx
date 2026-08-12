@@ -54,7 +54,7 @@ export default function Footer() {
             {[
               { href: 'https://github.com/vanita350', icon: Github, label: 'GitHub' },
               { href: 'https://linkedin.com/in/vanita-bharadiya', icon: Linkedin, label: 'LinkedIn' },
-              { href: 'https://mail.google.com/mail/?view=cm&fs=1&to=bharadiyavanitar@gmail.com', icon: Mail, label: 'Email' },
+              // { href: 'mailto:bharadiyavanitar@gmail.com?subject=Hello%20Vanita', icon: Mail, label: 'Email' },
             ].map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
