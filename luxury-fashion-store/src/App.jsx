@@ -18,6 +18,8 @@ import QuickViewModal from './components/QuickViewModal';
 import ToastContainer from './components/Toast';
 import SearchModal from './components/SearchModal';
 import CheckoutModal from './components/CheckoutModal';
+import SavedItems from './components/SavedItems';
+import ProductDetailPage from './components/ProductDetailPage';
 import { useShop } from './context/ShopContext';
 
 const AppSearchWrapper = () => {
@@ -26,29 +28,32 @@ const AppSearchWrapper = () => {
 };
 
 const AppContent = () => {
+  const { selectedProduct } = useShop();
+
   return (
     <div className="relative min-h-screen bg-beige-50 flex flex-col font-sans antialiased">
-      {/* Promo banner at the very top */}
-      {/* <PromoBar /> */}
-      
-      {/* Sticky header floating over sections */}
       <Header />
-      
-      {/* Content wrapper */} 
-      <main className="flex-1">
-        <Hero />
-        <BrandPartners />
-        <Categories />
-        <ProductSection />
-        <Trending />
-        <FlashSale />
-        <WhyChooseUs />
-        <CustomerReviews />
-        <InstagramGallery />
-        <Newsletter />
-      </main>
-      
-      {/* Footer at the bottom */}
+
+      {selectedProduct ? (
+        <main className="flex-1">
+          <ProductDetailPage />
+        </main>
+      ) : (
+        <main className="flex-1">
+          <Hero />
+          <BrandPartners />
+          <Categories />
+          <ProductSection />
+          <Trending />
+          <SavedItems />
+          <FlashSale />
+          <WhyChooseUs />
+          <CustomerReviews />
+          <InstagramGallery />
+          <Newsletter />
+        </main>
+      )}
+
       <Footer />
 
       {/* Global Overlays & Modals */}

@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useShop } from '../context/ShopContext';
 import { Heart, Eye, ShoppingBag, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { FALLBACK_FASHION_IMAGE } from '../data/products';
 
 const ProductCard = ({ product }) => {
-  const { toggleWishlist, wishlist, addToCart, setQuickViewProduct, setCartOpen } = useShop();
+  const { toggleWishlist, wishlist, addToCart, setQuickViewProduct, setSelectedProduct, setCartOpen } = useShop();
   const [hovered, setHovered] = useState(false);
 
   const isWishlisted = wishlist.some((item) => item.id === product.id);
@@ -21,10 +22,14 @@ const ProductCard = ({ product }) => {
         
         {/* Main Image & Hover Swap Image */}
         <img
-          src={hovered && product.hoverImage ? product.hoverImage : product.image}
+          src={hovered && product.hoverImage ? product.hoverImage : product.image || FALLBACK_FASHION_IMAGE}
           alt={product.name}
           className="w-full h-full object-cover object-center transition-all duration-700 ease-out scale-100 group-hover:scale-103"
           loading="lazy"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = FALLBACK_FASHION_IMAGE;
+          }}
         />
 
         {/* Badges Overlay (Left) */}
@@ -98,7 +103,10 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Title */}
-        <h3 className="font-serif text-sm md:text-base text-charcoal-950 tracking-wide mb-1 leading-tight hover:text-gold-primary transition-colors cursor-pointer" onClick={() => setQuickViewProduct(product)}>
+<h3
+                  className="font-serif text-sm md:text-base text-charcoal-950 tracking-wide mb-1 leading-tight hover:text-gold-primary transition-colors cursor-pointer"
+                  onClick={() => setSelectedProduct(product)}
+                >
           {product.name}
         </h3>
 

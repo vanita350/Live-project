@@ -18,7 +18,9 @@ const Header = () => {
     setSearchQuery,
     addToCart,
     setQuickViewProduct,
+    setSelectedProduct,
     setActiveCategory,
+    setActiveSubcategory,
     orders
   } = useShop();
 
@@ -63,6 +65,7 @@ const Header = () => {
   const handleNavClick = (category) => {
     if (category) {
       setActiveCategory(category);
+      setActiveSubcategory('all');
     }
   };
 

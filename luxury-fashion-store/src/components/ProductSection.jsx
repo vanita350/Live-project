@@ -6,7 +6,7 @@ import FilterBar from './FilterBar';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ProductSection = () => {
-  const { activeCategory, filters } = useShop();
+  const { activeCategory, activeSubcategory, setActiveSubcategory, filters } = useShop();
   const [activeTab, setActiveTab] = useState('featured'); // 'featured' | 'bestsellers' | 'new'
 
   const tabs = [
@@ -15,12 +15,23 @@ const ProductSection = () => {
     { id: 'new', label: 'NEW ARRIVALS' }
   ];
 
+  const womenSubcategories = [
+    { id: 'all', label: 'All' },
+    { id: 'dresses', label: 'Dresses' },
+    { id: 'kurtas', label: 'Kurtas' },
+    { id: 'leggings', label: 'Leggings' },
+    { id: 'jeans', label: 'Jeans' }
+  ];
+
   const getFilteredProducts = () => {
     let filtered = products;
     
     // Category filter
     if (activeCategory && activeCategory !== 'all') {
       filtered = filtered.filter(p => p.category === activeCategory);
+    }
+    if (activeCategory === 'women' && activeSubcategory && activeSubcategory !== 'all') {
+      filtered = filtered.filter(p => p.subcategory === activeSubcategory);
     }
 
     // Tab filter
@@ -97,7 +108,7 @@ const ProductSection = () => {
             >
               {tab.label}
               {activeTab === tab.id && (
-                <motion.div
+                <motion.div  
                   layoutId="activeTabUnderline"
                   className="absolute bottom-0 left-0 w-full h-[1.5px] bg-charcoal-950"
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -106,6 +117,25 @@ const ProductSection = () => {
             </button>
           ))}
         </div>
+
+        {activeCategory === 'women' && (
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {womenSubcategories.map((subcategory) => (
+              <button
+                key={subcategory.id}
+                type="button"
+                onClick={() => setActiveSubcategory(subcategory.id)}
+                className={`text-[10px] md:text-xs uppercase tracking-[0.25em] px-4 py-2 border transition-colors cursor-pointer ${
+                  activeSubcategory === subcategory.id
+                    ? 'border-charcoal-950 bg-charcoal-950 text-beige-50'
+                    : 'border-charcoal-200 bg-white text-charcoal-700 hover:border-charcoal-950'
+                }`}
+              >
+                {subcategory.label}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Products Grid */}
         <motion.div

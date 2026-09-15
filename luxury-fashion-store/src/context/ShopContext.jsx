@@ -5,7 +5,7 @@ const ShopContext = createContext();
 export const useShop = () => {
   const context = useContext(ShopContext);
   if (!context) {
-    throw new Error('useShop must be used within a ShopProvider'); 
+    throw new Error('useShop must be used within a ShopProvider');
   }
   return context;
 };
@@ -14,7 +14,7 @@ export const ShopProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     const localCart = localStorage.getItem('aura_cart');
     return localCart ? JSON.parse(localCart) : [];
-  }); 
+  });
 
   const [wishlist, setWishlist] = useState(() => {
     const localWishlist = localStorage.getItem('aura_wishlist');
@@ -37,7 +37,9 @@ export const ShopProvider = ({ children }) => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
+  const [activeSubcategory, setActiveSubcategory] = useState('all');
   const [toasts, setToasts] = useState([]);
 
   // Filter & Sort State
@@ -131,7 +133,7 @@ export const ShopProvider = ({ children }) => {
     );
   };
 
-  const clearCart = () => { 
+  const clearCart = () => {
     setCart([]);
     addToast('Cart cleared', 'info');
   };
@@ -227,6 +229,8 @@ export const ShopProvider = ({ children }) => {
         setSearchQuery,
         quickViewProduct,
         setQuickViewProduct,
+        selectedProduct,
+        setSelectedProduct,
         toasts,
         addToast,
         removeToast,
@@ -238,6 +242,8 @@ export const ShopProvider = ({ children }) => {
         toggleWishlist,
         activeCategory,
         setActiveCategory,
+        activeSubcategory,
+        setActiveSubcategory,
         cartSubtotal,
         cartCount,
         orders,
