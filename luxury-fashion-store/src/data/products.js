@@ -22,7 +22,7 @@ export const categories = [
   {
     id: 'kids',
     name: 'Kids',
-    image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=900&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWkKHYQ8tG2Viu2Xc_GI-otop6WrE23hVev5LBYzg0kg&s=10',
     itemCount: '62 Products'
   }
 ];
@@ -83,8 +83,8 @@ export const products = [
     reviews: 68,
     discount: 21,
     badge: 'Popular',
-    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR40joW8Ut6rA4i8TIls1LYH4RSIy__dmDybcFZccXt7g&s',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUJIOx-F93foQ8hjOI5_UdBDU4kNMrIrJ83jIxLMYx0A&s=10',
     description: 'Tailored cotton shirt with refined collar structure and a crisp finish for elevated everyday styling.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: [
@@ -104,8 +104,8 @@ export const products = [
     reviews: 76,
     discount: 20,
     badge: 'Best Seller',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJwIeOpsMoB8PrJ_1lh77f4fJjl6z18YpXpsksMBM4uA&s',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRer0TMx3ln9hGlaFa6IOdzIScnPrWdOyM7uU4pMzIHXA&s',
     description: 'High-waist pleated trousers cut for a sharp drape and premium movement with a clean modern finish.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: [
@@ -142,8 +142,8 @@ export const products = [
     rating: 4.6,
     reviews: 49,
     badge: 'Luxury',
-    image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1LCu7skpAqPjiTC9vHwOmvdMgM6FB8FwpY8li1uKhmA&s',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7P-aSL-3iC3ZmFQLx0c5NV4WrHXFWUdY4M4Yp15Z_QQ&s=10',
     description: 'A polished leather belt with a minimal buckle and a refined finish tailored for daily luxury styling.',
     sizes: ['S', 'M', 'L'],
     colors: [
@@ -205,8 +205,8 @@ export const products = [
     reviews: 95,
     discount: 33,
     badge: 'Premium',
-    image: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThpT98bCSKDA2Q0JDcTV0-D7EU_8KTDyxsc9Qf6Of1Pw&s=10',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGapO1jivrOCuvtfA8A5O7JD6Gd1CIbUBQDSafm8BZBw&s=10',
     imageByColor: {
       'Tobacco Brown': 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600&auto=format&fit=crop',
       'Camel Tan': 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop'
@@ -230,8 +230,8 @@ export const products = [
     reviews: 61,
     discount: 20,
     badge: 'Trending',
-    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSm4leyaEKp2UFY8Xgiepopso-mRYCTX-ryYorc9xyZA&s=10',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7QNSMGuKXm6LE_2IP847pFfIaOJr5yBtMk58ml4S-JQ&s',
     description: 'A refined wool-blend jacket with a clean shoulder line and soft structure, designed for elevated layering.',
     sizes: ['M', 'L', 'XL'],
     colors: [
@@ -249,8 +249,8 @@ export const products = [
     rating: 4.7,
     reviews: 112,
     badge: 'Popular',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIRqRqNutnhSyEc0BsUikCT21eyuhEDb6l93Z5y_eNxg&s=10',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDhvtoFDwJ77WuQ7-R_uZeO5XrB50hmYyVCfDDf2Epkg&s=10',
     description: 'Cut on the bias for an elegant drape, this mulberry silk dress features adjustable cross-back straps, a cowl neckline, and a subtle side slit.',
     sizes: ['XS', 'S', 'M', 'L'],
     colors: [
@@ -270,8 +270,8 @@ export const products = [
     reviews: 58,
     discount: 20,
     badge: 'New',
-    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600&auto=format&fit=crop',
+    image: 'https://www.fashionwallah.in/uploads/vikify-women-pure-cotton-kurta-pant-set-4b506cfe.png',
+    hoverImage: 'https://www.fashionwallah.in/uploads/vikify-women-pure-cotton-kurta-pant-set-4b506cfe.png',
     description: 'A breathable cotton kurta with refined details, gentle structure, and a flattering straight silhouette for both day and evening wear.',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: [
@@ -291,8 +291,8 @@ export const products = [
     reviews: 72,
     discount: 20,
     badge: 'Popular',
-    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-gyvdYrmk-Hy1uQqqnsSecLvOc7r7eQXJGrv5OpUcMQ&s=10',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-gyvdYrmk-Hy1uQqqnsSecLvOc7r7eQXJGrv5OpUcMQ&s=10',
     description: 'Soft-touch leggings with sculpting fit and high-rise waistband designed for polished comfort and movement.',
     sizes: ['XS', 'S', 'M', 'L'],
     colors: [
@@ -312,8 +312,8 @@ export const products = [
     reviews: 90,
     discount: 20,
     badge: 'Best Seller',
-    image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=600&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmHOl0Ok67F2097lzOoXPuJlaH8hjL2fcBSOzV3joBnQ&s',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-PL9XbBaTMxu4htQpgrMECwD2hzrEgwdQMFMcmiUH-g&s',
     description: 'Relaxed, wide-leg denim with premium stretch and a flattering rise, perfect for everyday sophistication.',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: [
@@ -352,7 +352,7 @@ export const products = [
     reviews: 54,
     badge: 'Luxury',
     image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=600&auto=format&fit=crop',
-    hoverImage: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=600&auto=format&fit=crop',
+    hoverImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsbJjpmomrU7JhvVSeunykT5r5dcDNu8I9iI9kDi5dcw&s=10',
     description: 'Elegant pearl drop earrings with a polished finish that elevates both daywear and evening looks.',
     sizes: ['One Size'],
     colors: [

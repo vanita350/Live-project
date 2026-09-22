@@ -32,7 +32,7 @@ const timeline: TimelineItem[] = [
     type: 'education',
     role: 'Bachelor of Computer Applications (BCA)',
     org: 'Swarrnim Startup & Innovation University (SSIU)',
-    period: '2023 – 2026',
+    period: '2024 – 2027',
     location: 'Gandhinagar, Gujarat',
     description:
       'Currently in the final year of the Bachelor of Computer Applications (BCA) program, specializing in Full Stack Web Development.',

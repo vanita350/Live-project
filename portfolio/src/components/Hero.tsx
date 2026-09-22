@@ -110,7 +110,7 @@ export default function Hero() {
             <Mail className="w-4 h-4" />
           </button>
           <a
-            href="/Vanita_Bharadiya_Full_Stack_Developer_Resume.pdf.pdf"
+            href="/Vanita_Bharadiya_Resume.pdf"
             download="Vanita_Bharadiya_Full_Stack_Developer_Resume.pdf"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-zinc-400 hover:text-zinc-200 transition-colors group"
           >
